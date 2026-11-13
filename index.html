@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zinzo admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF5B23'/%3E%3Cpath d='M8 9h12l-3 4H8zM19 15l5-6h4l-7 10zM8 27l7-10 3 4-4 6zM14 27l3-4h11l-3 4z' fill='%23121212'/%3E%3C/svg%3E">
+<!-- No secrets here: the anon key is public by design; every write is checked by RLS (public.is_admin()). -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.js"></script>
+<script src="shared.js"></script>
+</head>
+<body>
+<div id="login" class="login hidden">
+  <div class="brand" style="justify-content:center;margin-bottom:22px"><span class="mark"><svg width="20" height="20" viewBox="196 185 632 653"><polygon points="216,330 302,205 613,205 528,330" fill="#121212"/><polygon points="518,407 655,205 808,205 593,519" fill="#121212"/><polygon points="216,818 430,505 502,610 361,818" fill="#121212"/><polygon points="402,818 488,692 808,692 722,818" fill="#121212"/><polygon points="512,450 553,512 512,573 470,512" fill="#F6F1E7"/></svg></span>Zinzo <span class="tag">ADMIN</span></div>
+  <div class="card stack">
+    <h1 id="loginTitle">Sign in</h1>
+    <p class="muted" style="margin:0" id="loginSub">Admins only. Use the email listed as a Zinzo admin.</p>
+    <form id="pwForm" class="stack">
+      <label class="f">Email<input id="email" type="email" autocomplete="username" required></label>
+      <label class="f">Password<input id="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn full" type="submit">Sign in</button>
+    </form>
+    <button class="btn sec full" id="linkBtn" type="button">First time or forgot password? Email me a sign-in link</button>
+    <form id="setPwForm" class="stack hidden">
+      <label class="f">New password <span class="h">At least 10 characters. You'll use it to sign in here next time.</span><input id="newPw" type="password" autocomplete="new-password" minlength="10" required></label>
+      <label class="f">Confirm password<input id="newPw2" type="password" autocomplete="new-password" minlength="10" required></label>
+      <button class="btn full" type="submit">Save password</button>
+      <button class="btn sec full" type="button" id="skipPw">Not now</button>
+    </form>
+    <p id="loginMsg" class="small muted" style="margin:0"></p>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+  <div class="top">
+    <div class="brand"><span class="mark"><svg width="20" height="20" viewBox="196 185 632 653"><polygon points="216,330 302,205 613,205 528,330" fill="#121212"/><polygon points="518,407 655,205 808,205 593,519" fill="#121212"/><polygon points="216,818 430,505 502,610 361,818" fill="#121212"/><polygon points="402,818 488,692 808,692 722,818" fill="#121212"/><polygon points="512,450 553,512 512,573 470,512" fill="#F6F1E7"/></svg></span>Zinzo <span class="tag">ADMIN</span></div>
+    <div class="who"><span id="me"></span><button class="btn sec sm" id="chPw">Set password</button><button class="btn sec sm" id="logout">Sign out</button></div>
+  </div>
+  <div class="layout">
+    <nav class="side" id="nav">
+      <button data-tab="waitlist" class="on">Waitlist</button>
+      <button data-tab="users">Users</button>
+      <button data-tab="banners">Banners</button>
+      <button data-tab="dapps">dApps</button>
+      <button data-tab="tokens">Tokens</button>
+      <button data-tab="flags">Feature flags</button>
+      <button data-tab="update">Force update</button>
+      <button data-tab="push">Push</button>
+    </nav>
+    <main id="main"></main>
+  </div>
+</div>
+<dialog id="dlg"></dialog>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
