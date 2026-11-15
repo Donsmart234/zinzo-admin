@@ -18,13 +18,13 @@
   <div class="brand" style="justify-content:center;margin-bottom:22px"><span class="mark"><svg width="20" height="20" viewBox="196 185 632 653"><polygon points="216,330 302,205 613,205 528,330" fill="#121212"/><polygon points="518,407 655,205 808,205 593,519" fill="#121212"/><polygon points="216,818 430,505 502,610 361,818" fill="#121212"/><polygon points="402,818 488,692 808,692 722,818" fill="#121212"/><polygon points="512,450 553,512 512,573 470,512" fill="#F6F1E7"/></svg></span>Zinzo <span class="tag">ADMIN</span></div>
   <div class="card stack">
     <h1 id="loginTitle">Sign in</h1>
-    <p class="muted" style="margin:0" id="loginSub">Admins only. Use the email listed as a Zinzo admin.</p>
+    <p class="muted" style="margin:0" id="loginSub">Admins only. Use the email listed as a Zinzo admin. First time here or forgot your password? Use the email link below.</p>
     <form id="pwForm" class="stack">
       <label class="f">Email<input id="email" type="email" autocomplete="username" required></label>
       <label class="f">Password<input id="password" type="password" autocomplete="current-password" required></label>
       <button class="btn full" type="submit">Sign in</button>
     </form>
-    <button class="btn sec full" id="linkBtn" type="button">First time or forgot password? Email me a sign-in link</button>
+    <button class="btn sec full" id="linkBtn" type="button" title="First time here or forgot your password?">Email me a sign-in link</button>
     <form id="setPwForm" class="stack hidden">
       <label class="f">New password <span class="h">At least 10 characters. You'll use it to sign in here next time.</span><input id="newPw" type="password" autocomplete="new-password" minlength="10" required></label>
       <label class="f">Confirm password<input id="newPw2" type="password" autocomplete="new-password" minlength="10" required></label>
