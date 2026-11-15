@@ -24,7 +24,7 @@
     const setPw = mode === 'setpw';
     $('#pwForm').classList.toggle('hidden', setPw); $('#linkBtn').classList.toggle('hidden', setPw); $('#setPwForm').classList.toggle('hidden', !setPw);
     $('#loginTitle').textContent = setPw ? 'Set your password' : 'Sign in';
-    $('#loginSub').textContent = setPw ? 'You signed in with an email link. Set a password for next time.' : 'Admins only. Use the email listed as a Zinzo admin.';
+    $('#loginSub').textContent = setPw ? 'You signed in with an email link. Set a password for next time.' : 'Admins only. Use the email listed as a Zinzo admin. First time here or forgot your password? Use the email link below.';
   };
   $('#pwForm').addEventListener('submit', guard(async (e) => {
     e.preventDefault();
